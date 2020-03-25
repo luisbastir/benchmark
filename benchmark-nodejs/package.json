@@ -10,6 +10,7 @@
   "license": "ISC",
   "dependencies": {
     "express": "^4.17.1",
-    "node": "^13.11.0"
+    "node": "^13.11.0",
+    "pug": "^2.0.4"
   }
 }
