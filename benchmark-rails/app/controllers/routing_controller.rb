@@ -14,6 +14,11 @@ class RoutingController < ApplicationController
   def hello_html
   end
 
+  # GET /hello/:msg
+  def hello_html_msg
+    @msg = params[:msg]
+  end
+
   # GET /hello/msg/:msg
   def msg
     @text = params[:msg]
