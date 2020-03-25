@@ -1,0 +1,15 @@
+{
+  "name": "benchmark-nodejs",
+  "version": "1.0.0",
+  "description": "This is a web framework server benchmark using nodejs",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "node": "^13.11.0"
+  }
+}
