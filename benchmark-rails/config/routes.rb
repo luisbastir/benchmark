@@ -8,4 +8,9 @@ Rails.application.routes.draw do
   get "/hello/query", to: "routing#query", as: "hello_query"
   get "/badrequest", to: "routing#badrequest", as: "badrequest"
   get "/list", to: "routing#list", as: "list"
+
+  scope '/modelview' do
+    resources :authors, only: [:index, :new, :create, :show, :update, :destroy]
+    resources :books, only: [:index, :new, :create, :show, :update, :destroy]
+  end
 end

@@ -1,0 +1,24 @@
+<ul>
+  <li>
+    <%= link_to "Authors", authors_path %>
+  </li>
+  <li>
+    <%= link_to "Books", books_path %>
+  </li>
+</ul>
+<br>
+<h1>Add new author</h1>
+<br>
+<%= form_with model: @author, url: authors_path, method: "post" do |f| %>
+  <div>
+    <%= f.label :first_name, value: "First Name" %>&nbsp;
+    <%= f.text_field :first_name %>
+  </div>
+  <div>
+    <%= f.label :last_name, value: "Last Name" %>&nbsp;
+    <%= f.text_field :last_name %>
+  </div>
+  <%= f.submit "Add" %>
+<% end %>
+<br>
+<%= link_to "Back", authors_path %>

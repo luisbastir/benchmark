@@ -1,0 +1,45 @@
+<ul>
+  <li>
+    <%= link_to "Authors", authors_path %>
+  </li>
+  <li>
+    <%= link_to "Books", books_path %>
+  </li>
+</ul>
+<br>
+<h1>Authors</h1>
+<br>
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>First Name</th>
+      <th>Last Name</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% if @authors.size > 0 %>
+      <% @authors.each do |author| %>
+        <tr>
+          <td>
+            <%= link_to author.id, author_path(author) %>
+          </td>
+          <td>
+            <%= author.first_name %>
+          </td>
+          <td>
+            <%= author.last_name %>
+          </td>
+        </tr>
+      <% end %>
+    <% else %>
+      <tr>
+        <td colspan="3">
+          No items found
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<br>
+<%= link_to "Add new author", new_author_path %>

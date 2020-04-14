@@ -1,0 +1,32 @@
+<ul>
+  <li>
+    <%= link_to "Authors", authors_path %>
+  </li>
+  <li>
+    <%= link_to "Books", books_path %>
+  </li>
+</ul>
+<br>
+<h1>Add new book</h1>
+<br>
+<%= form_with model: @book, url: books_path, method: "post" do |f| %>
+  <div>
+    <%= f.label :title, value: "Title" %>&nbsp;
+    <%= f.text_field :title %>
+  </div>
+  <div>
+    <%= f.label :description, value: "Description" %>&nbsp;
+    <%= f.text_field :description %>
+  </div>
+  <div>
+    <%= f.label :year, value: "Year" %>&nbsp;
+    <%= f.number_field :year, step: 1, min: 0 %>
+  </div>
+  <div>
+    <%= f.label :author_id, value: "Author" %>&nbsp;
+    <%= f.select :author_id, Author.all.collect {|a| ["#{a.first_name} #{a.last_name}", a.id]} %>
+  <div>
+  <%= f.submit "Add" %>
+<% end %>
+<br>
+<%= link_to "Back", books_path %>

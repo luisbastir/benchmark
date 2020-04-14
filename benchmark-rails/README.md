@@ -1,5 +1,10 @@
-# Rails
-This is build with Ruby on Rails
+# Benchmark
+
+## Description
+- Language: Ruby (*.rb)
+- Framework: Rails
+- Template Engine: Embedded Ruby (*.html.erb)
+- Database: MySQL
 
 ## Scripts
 Install dependencies with:
@@ -7,22 +12,17 @@ Install dependencies with:
 $ bundle install
 ```
 
-Run with:
+Run migration script with:
+```sh
+$ rails db:migrate
+```
+
+Run rollback script with:
+```sh
+$ rails db:rollback
+```
+
+Run server with:
 ```sh
 $ rails s
 ```
-
-
-## Sections
-Sections defined by server configuration and methods
-
-### routing.js
-Paths:
-- /hello - Simple text response
-- /hello/json - Simple JSON response
-- /hello/html - Simple static HTML response
-- /hello/html/:msg - Simple HTML response with dynamic content
-- /hello/msg/:msg - Simple text response with a simple variable path
-- /hello/query?msg - Simple text response with a simple query
-- /badrequest - Simple text response with a status code of 400 (bad request)
-- /list - Simple text response with 5000 string iterations
