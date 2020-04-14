@@ -22,7 +22,7 @@ router.get("/authors/new", function(req, res) {
   res.render("authors/new");
 });
 
-router.post("/authors/new", function(req, res) {
+router.post("/authors", function(req, res) {
   let author = {
     first_name: req.body.first_name ? req.body.first_name.trim() : null,
     last_name: req.body.last_name ? req.body.last_name.trim() : null
@@ -183,7 +183,7 @@ router.get("/books/new", function(req, res) {
   });
 });
 
-router.post("/books/new", function(req, res) {
+router.post("/books", function(req, res) {
   let book = {
     title: req.body.title ? req.body.title.trim() : null,
     description: req.body.description ? req.body.description.trim() : null,
@@ -311,7 +311,7 @@ router.delete("/books/:id", function(req, res) {
   });
 });
 
-router.post("/authors/:id/delete", function(req, res) {
+router.post("/books/:id/delete", function(req, res) {
   BookModel.findById(req.params.id, req.db, function(err, book) {
     if (err) {
       res.render("error");
