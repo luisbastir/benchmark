@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    title NodeJS Benchmark
+  body
+    ul
+      li
+        a(href="/modelview/authors") Authors
+      li
+        a(href="/modelview/books") Books
+    br
+    h1 Add new book
+    br
+    if errors
+      ul(style="text-color: red;")
+        each error in errors
+          li= error
+      br
+    form(method="POST", action="/modelview/books/new")
+      div
+        label(for="title") Title&nbsp;
+        input(type="text", id="title", name="title")
+      div
+        label(for="description") Description&nbsp;
+        input(type="text", id="description", name="description")
+      div
+        label(for="year") Year&nbsp;
+        input(type="number", id="year", name="year", step="1", min="0")
+      div
+        label(for="author_id") Author&nbsp;
+        select(id="author_id", name="author_id")
+          option(value="null") -- Select --
+          if authors
+            each author in authors
+              option(value=author.id) #{author.first_name} #{author.last_name}
+      button(type="submit") Add
+    br
+    a(href="/modelview/books") Back

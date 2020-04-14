@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    title NodeJS Benchmark
+  body
+    ul
+      li
+        a(href="/modelview/authors") Authors
+      li
+        a(href="/modelview/books") Books
+    br
+    h1 Edit author
+    br
+    if message
+      ul(style="text-color: green;")
+        li= message
+      br
+    if errors
+      ul(style="text-color: red;")
+        each error in errors
+          li= error
+      br
+    form(method="POST", action="/modelview/authors/" + author.id)
+      div
+        label(for="first_name") First Name&nbsp;
+        input(type="text", id="first_name", name="first_name", value=author.first_name)
+      div
+        label(for="last_name") Last Name&nbsp;
+        input(type="text", id="last_name", name="last_name", value=author.last_name)
+      button(type="submit") Update
+    br
+    form(method="POST", action="/modelview/authors/" + author.id + "/delete")
+      button(type="submit") Delete
+    br
+    hr
+    h3 Author's books
+    table
+      thead
+        tr
+          th ID
+          th Title
+          th Year
+      tbody
+        if books.length > 0
+          each book in books
+            tr
+              td
+                a(href="/modelview/books/" + book.id) #{book.id}
+              td= book.title
+              td= book.year
+        else
+          tr
+            td(colspan=3) No items found
+
+    br
+    a(href="/modelview/authors") Back
