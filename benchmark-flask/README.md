@@ -1,23 +1,23 @@
-# Flask
-This is build with Flask in Python 3
+# Benchmark
+
+## Description
+- Language: Python 3 (*.py)
+- Framework: Flask
+- Template Engine: Flaskr package using HTML pages (*.html)
+- Database: MySQL
 
 ## Scripts
-Run with:
+Run migration script with:
 ```sh
-$ python3 runserver.py
+$ python3 migration.py db upgrade
 ```
 
+Run rollback script with:
+```sh
+$ python3 migration.py db downgrade
+```
 
-## Sections
-Sections defined by server configuration and methods
-
-### routing.js
-Paths:
-- /hello - Simple text response
-- /hello/json - Simple JSON response
-- /hello/html - Simple static HTML response
-- /hello/html/:msg - Simple HTML response with dynamic content
-- /hello/msg/:msg - Simple text response with a simple variable path
-- /hello/query?msg - Simple text response with a simple query
-- /badrequest - Simple text response with a status code of 400 (bad request)
-- /list - Simple text response with 5000 string iterations
+Run server with:
+```sh
+$ python3 server.py
+```

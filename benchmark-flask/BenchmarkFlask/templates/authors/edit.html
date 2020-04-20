@@ -1,0 +1,71 @@
+<ul>
+  <li>
+    <a href="{{ url_for('modelview_authors') }}">Authors</a>
+  </li>
+  <li>
+    <a href="{{ url_for('modelview_books') }}">Books</a>
+  </li>
+</ul>
+<br>
+<h1>Edit author</h1>
+<br>
+<form method="POST" action="{{ url_for('modelview_author_update', id=author.id) }}">
+  <div>
+    <label for="first_name">
+      First Name
+    </label>
+    <input type="text" name="first_name" id="first_name" value="{{ author.first_name }}">
+  </div>
+  <div>
+    <label for="last_name">
+      Last Name
+    </label>
+    <input type="text" name="last_name" id="last_name" value="{{ author.last_name }}">
+  </div>
+  <input type="submit" value="Update">
+</form>
+<br>
+<form method="POST" action="{{ url_for('modelview_author_delete', id=author.id) }}">
+  <input type="submit" value="Delete">
+</form>
+<br>
+<hr>
+<h3>Author's books</h3>
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Title</th>
+      <th>Year</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% if books|length > 0 %}
+      {% for book in books %}
+      <tr>
+        <td>
+          <a href="{{ url_for('modelview_book', id=book.id) }}">
+            {{ book.id }}
+          </a>
+        </td>
+        <td>
+          {{ book.title }}
+        </td>
+        <td>
+          {{ book.year }}
+        </td>
+      </tr>
+      {% endfor %}
+    {% else %}
+      <tr>
+        <td colspan="3">
+          No items found
+        </td>
+      </tr>
+    {% endif %}
+  </tbody>
+</table>
+<br>
+<a href="{{ url_for('modelview_authors') }}">
+  Back
+</a>
