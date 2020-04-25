@@ -9,7 +9,7 @@
 ## Scripts
 Create migration script with:
 ```sh
-$ python3 manage.py makemigration <app_name>
+$ python3 manage.py makemigrations <app_name>
 ```
 
 Run migration script with:
