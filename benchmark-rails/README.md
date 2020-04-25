@@ -12,6 +12,11 @@ Install dependencies with:
 $ bundle install
 ```
 
+Create migration scripts with:
+```sh
+$ rails generate migration <CustomRubyClassName>
+```
+
 Run migration script with:
 ```sh
 $ rails db:migrate
