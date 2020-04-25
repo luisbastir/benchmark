@@ -7,6 +7,15 @@
 - Database: MySQL
 
 ## Scripts
+Create migration scripts with:
+```sh
+## Only first time
+$ python3 migration.py db init
+
+## then
+$ python3 migration.py db migrate
+```
+
 Run migration script with:
 ```sh
 $ python3 migration.py db upgrade
