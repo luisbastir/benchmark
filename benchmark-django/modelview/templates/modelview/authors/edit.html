@@ -1,0 +1,69 @@
+<ul>
+  <li>
+    <a href="{% url 'modelview_authors' %}">Authors</a>
+  </li>
+  <li>
+    <a href="{% url 'modelview_books' %}">Books</a>
+  </li>
+</ul>
+<br>
+<h1>Edit author</h1>
+<br>
+<form method="POST" action="{% url 'modelview_author' id=author.id %}">
+  {% csrf_token %}
+  {{ form.non_field_errors }}
+  <div>
+    {{ form.first_name.label_tag }}
+    {{ form.first_name }}
+  </div>
+  <div>
+    {{ form.last_name.label_tag }}
+    {{ form.last_name }}
+  </div>
+  <input type="submit" value="Update">
+</form>
+<br>
+<a href="{% url 'modelview_author_delete' author.id %}">
+  Delete
+</a>
+<br>
+<hr>
+<h3>Author's books</h3>
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Title</th>
+      <th>Year</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% if books|length > 0 %}
+      {% for book in books %}
+      <tr>
+        <td>
+          <a href="{% url 'modelview_book' book.id %}">
+            {{ book.id }}
+          </a>
+        </td>
+        <td>
+          {{ book.title }}
+        </td>
+        <td>
+          {{ book.year }}
+        </td>
+      </tr>
+      {% endfor %}
+    {% else %}
+      <tr>
+        <td colspan="3">
+          No items found
+        </td>
+      </tr>
+    {% endif %}
+  </tbody>
+</table>
+<br>
+<a href="{% url 'modelview_authors' %}">
+  Back
+</a>

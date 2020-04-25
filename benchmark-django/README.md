@@ -1,23 +1,28 @@
-# Django
-This is build with Django in Python 3
+# Benchmark
+
+## Description
+- Language: Python 3 (*.py)
+- Framework: Django 3
+- Template Engine: Django Model View Template class using HTML pages (*.html)
+- Database: MySQL
 
 ## Scripts
-Run with:
+Create migration script with:
+```sh
+$ python3 manage.py makemigration <app_name>
+```
+
+Run migration script with:
+```sh
+$ python3 manage.py migrate
+```
+
+Run rollback script with:
+```sh
+$ python3 manage.py migrate <app_name> <version_name or zero>
+```
+
+Run server with:
 ```sh
 $ python3 manage.py runserver 3000
 ```
-
-
-## Sections
-Sections defined by server configuration and methods
-
-### routing.js
-Paths:
-- /hello - Simple text response
-- /hello/json - Simple JSON response
-- /hello/html - Simple static HTML response
-- /hello/html/:msg - Simple HTML response with dynamic content
-- /hello/msg/:msg - Simple text response with a simple variable path
-- /hello/query?msg - Simple text response with a simple query
-- /badrequest - Simple text response with a status code of 400 (bad request)
-- /list - Simple text response with 5000 string iterations

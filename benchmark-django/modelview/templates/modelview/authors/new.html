@@ -1,0 +1,28 @@
+<ul>
+  <li>
+    <a href="{% url 'modelview_authors' %}">Authors</a>
+  </li>
+  <li>
+    <a href="{% url 'modelview_books' %}">Books</a>
+  </li>
+</ul>
+<br>
+<h1>Add new author</h1>
+<br>
+<form method="POST" action="{% url 'modelview_author_new' %}">
+  {% csrf_token %}
+  {{ form.non_field_errors }}
+  <div>
+    {{ form.first_name.label_tag }}
+    {{ form.first_name }}
+  </div>
+  <div>
+    {{ form.last_name.label_tag }}
+    {{ form.last_name }}
+  </div>
+  <input type="submit" value="Add">
+</form>
+<br>
+<a href="{% url 'modelview_authors' %}">
+  Back
+</a>
